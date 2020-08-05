@@ -2,14 +2,6 @@
 
 set -ex
 
-if [ "$BUILD_TARGET" = "StandaloneWindows64" ]; then
-    STEAM_DEPOT_ID=$STEAM_WINDOWS_DEPOT_ID
-elif [ "$BUILD_TARGET" = "StandaloneOSX" ]; then
-    STEAM_DEPOT_ID=$STEAM_OSX_DEPOT_ID
-elif [ "$BUILD_TARGET" = "StandaloneLinux64" ]; then
-    STEAM_DEPOT_ID=$STEAM_LINUX_DEPOT_ID
-fi
-
 CONTENT_ROOT="/home/content"
 SCRIPTS_ROOT="/home/scripts"
 
