@@ -15,7 +15,7 @@ CONTENT_ROOT="/home/content"
 # Replace all values in Valve template files for the actual project
 APP_BUILD_FILENAME="app_build_$STEAM_APP_ID.vdf"
 # Change this according the platform
-DEPOT_BUILD_FILENAME="app_build_$STEAM_WINDOWS_DEPOT_ID.vdf"
+DEPOT_BUILD_FILENAME="depot_build_$STEAM_WINDOWS_DEPOT_ID.vdf"
 
 mv /home/scripts/app_build_1000.vdf /home/scripts/$APP_BUILD_FILENAME
 mv /home/scripts/depot_build_1001.vdf /home/scripts/$DEPOT_BUILD_FILENAME
