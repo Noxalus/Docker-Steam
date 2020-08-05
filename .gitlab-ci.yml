@@ -4,9 +4,8 @@ services:
   - docker:19.03.2-dind
 
 stages:
-  - test
-  - prepare
   - build
+  - deploy
 
 before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -14,7 +13,13 @@ before_script:
 build:
   stage : build
   script:
-    - ci/build.sh
+    -  chmod +x ./ci/build.sh && ./ci/build.sh
   retry: 2
   variables:
     TAG: TestTag
+
+deploy:
+    stage : deploy
+    script:
+        -  chmod +x ./ci/deploy.sh && ./ci/deploy.sh
+    when: manual

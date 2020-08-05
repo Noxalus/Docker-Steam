@@ -9,10 +9,3 @@ else
 fi
 
 docker build -f Dockerfile --label build-date=`date -Iseconds` --pull -t "$REGISTRY" "."
-docker push "$REGISTRY"
-
-if [ "$CI_COMMIT_REF_NAME" = "master" ] && [ -n "$LATEST" ]; then
-  echo "Marking $REGISTRY as latest image"
-  docker tag "$REGISTRY" "$CI_REGISTRY_IMAGE:latest"
-  docker push "$CI_REGISTRY_IMAGE:latest"
-fi
