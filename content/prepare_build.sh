@@ -30,4 +30,4 @@ sed -i "s~1001~$STEAM_DEPOT_ID~g" /home/scripts/$DEPOT_BUILD_FILENAME
 sed -i "s~D:\\\MyGame\\\rel\\\master\\\~$CONTENT_ROOT~g" /home/scripts/$DEPOT_BUILD_FILENAME
 
 # Move project build in the appropriate folder
-mv "$CI_BUILDS_DIR/$BUILD_TARGET/$BUILD_NAME" $CONTENT_ROOT
+mv "$CI_PROJECT_DIR/$BUILD_TARGET/$BUILD_NAME" $CONTENT_ROOT
