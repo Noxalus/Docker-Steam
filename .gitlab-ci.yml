@@ -1,8 +1,5 @@
 image: docker:19.03.2
 
-services:
-  - docker:19.03.2-dind
-
 stages:
   - build
 
@@ -14,5 +11,3 @@ build:
   script:
     -  chmod +x ./ci/build.sh && ./ci/build.sh
   retry: 2
-  variables:
-    TAG: TestTag
