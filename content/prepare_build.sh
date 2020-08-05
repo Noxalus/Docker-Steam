@@ -21,13 +21,13 @@ mv /home/scripts/app_build_1000.vdf /home/scripts/$APP_BUILD_FILENAME
 mv /home/scripts/depot_build_1001.vdf /home/scripts/$DEPOT_BUILD_FILENAME
 
 # App build file
-sed -i "s/1000/$STEAM_APP_ID/g" $APP_BUILD_FILENAME
-sed -i "s/1001/$STEAM_DEPOT_ID/g" $APP_BUILD_FILENAME
-sed -i "s/Your build description here/$CI_COMMIT_DESCRIPTION/g" $APP_BUILD_FILENAME
+sed -i "s/1000/$STEAM_APP_ID/g" /home/scripts/$APP_BUILD_FILENAME
+sed -i "s/1001/$STEAM_DEPOT_ID/g" /home/scripts/$APP_BUILD_FILENAME
+sed -i "s/Your build description here/$CI_COMMIT_DESCRIPTION/g" /home/scripts/$APP_BUILD_FILENAME
 
 # Depot build file
-sed -i "s/1001/$STEAM_DEPOT_ID/g" $DEPOT_BUILD_FILENAME
-sed -i "s/D:\\\MyGame\\\rel\\\master\\\/$CONTENT_ROOT/g" $DEPOT_BUILD_FILENAME
+sed -i "s/1001/$STEAM_DEPOT_ID/g" /home/scripts/$DEPOT_BUILD_FILENAME
+sed -i "s/D:\\\MyGame\\\rel\\\master\\\/$CONTENT_ROOT/g" /home/scripts/$DEPOT_BUILD_FILENAME
 
 # Move project build in the appropriate folder
 mv "./Builds/$BUILD_TARGET/$BUILD_NAME" $CONTENT_ROOT
