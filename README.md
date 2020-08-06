@@ -32,10 +32,14 @@ Make sure to retrieve the SSFN file and define the `STEAM_SSFN_FILE_PATH` variab
 
 When the image is downloaded, you need to call the `prepare_build.sh` script:
 
-`/home/prepare_build.sh`
+```shell
+/home/prepare_build.sh
+```
 
 This will replace all values in `app_build_*.vdf` and `depot_build_*.vdf` files by the ones you specified through environment variables.
 
 Then, call the `run_build.sh` script:
 
-`/home/run_build.sh`
+```shell
+/home/run_build.sh
+```
