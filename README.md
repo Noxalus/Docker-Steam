@@ -26,7 +26,9 @@ First, you will need to define multiple environment variables for your project:
 - `STEAM_DEPOT_ID`: The Depot ID where you want to upload your game build (can be found on the Steamworks dashboard).
 - `STEAM_DESCRIPTION`: The description you want to specify for your game build.
 - `STEAM_BRANCH`: The branch you want this build to be available on.
-- `STEAM_PREVIEW`: "1" if it's a preview build, else "0"
+- `STEAM_PREVIEW`: **"1"** if it's a preview build, else **"0"**
+
+Make sure to retrieve the SSFN file and define the `STEAM_SSFN_FILE_PATH` variable or it won't work. If you don't know what it is, please check [this page](https://gitlab.com/homo-ludens/dockersteam/-/wikis/How-to-skip-Steam-2AF).
 
 When the image is downloaded, you need to call the `prepare_build.sh` script:
 
