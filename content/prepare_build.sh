@@ -15,6 +15,7 @@ BUILD_DESCRIPTION=$(printf '%s\n' "$STEAM_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
 
 # TO REMOVE
 cp $APP_BUILD_FILENAME "/home/scripts/app_build_$STEAM_APP_ID.vdf"
+cp $DEPOT_BUILD_FILENAME "/home/scripts/depot_build_$STEAM_DEPOT_ID.vdf"
 
 # App build file
 sed -i 's/{APP_ID}/$STEAM_APP_ID/g' $APP_BUILD_FILENAME
