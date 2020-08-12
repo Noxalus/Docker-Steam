@@ -13,10 +13,12 @@ DEPOT_BUILD_FILENAME="depot_build_$STEAM_DEPOT_ID.vdf"
 mv $SCRIPTS_ROOT/app_build_1000.vdf $SCRIPTS_ROOT/$APP_BUILD_FILENAME
 mv $SCRIPTS_ROOT/depot_build_1001.vdf $SCRIPTS_ROOT/$DEPOT_BUILD_FILENAME
 
+echo $STEAM_DESCRIPTION
+
 # App build file
 sed -i "s~1000~$STEAM_APP_ID~g" $SCRIPTS_ROOT/$APP_BUILD_FILENAME
 sed -i "s~1001~$STEAM_DEPOT_ID~g" $SCRIPTS_ROOT/$APP_BUILD_FILENAME
-sed -i "s~Your build description here~$STEAM_DESCRIPTION~g" $SCRIPTS_ROOT/$APP_BUILD_FILENAME
+sed -i -n "s~Your build description here~$STEAM_DESCRIPTION~g" $SCRIPTS_ROOT/$APP_BUILD_FILENAME
 sed -i "s~\"setlive\"	\"\"~\"setlive\"	\"$STEAM_BRANCH\"~g" $SCRIPTS_ROOT/$APP_BUILD_FILENAME
 sed -i "s~\"preview\" \"0\"~\"preview\" \"$STEAM_PREVIEW\"~g" $SCRIPTS_ROOT/$APP_BUILD_FILENAME
 
