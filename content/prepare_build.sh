@@ -11,7 +11,7 @@ APP_BUILD_FILENAME="$SCRIPTS_ROOT/app_build.vdf"
 DEPOT_BUILD_FILENAME="$SCRIPTS_ROOT/depot_build.vdf"
 
 # Escape build description
-BUILD_DESCRIPTION=$(printf '%s\n' "$STEAM_DESCRIPTION" / sed -e 's/[\/&]/\\&/g')
+BUILD_DESCRIPTION=$(printf '%s\n' "$STEAM_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
 
 # App build file
 sed -i 's|{APP_ID}|'"$STEAM_APP_ID"'|g' $APP_BUILD_FILENAME
