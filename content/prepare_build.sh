@@ -13,11 +13,16 @@ DEPOT_BUILD_FILENAME="$SCRIPTS_ROOT/depot_build.vdf"
 # Escape build description
 BUILD_DESCRIPTION=$(printf '%s\n' "$STEAM_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
 
+# TO REMOVE
+cp $APP_BUILD_FILENAME "/home/scripts/app_build_$STEAM_APP_ID.vdf"
+cp $DEPOT_BUILD_FILENAME "/home/scripts/depot_build_$STEAM_DEPOT_ID.vdf"
+
 # App build file
 sed -i 's/{APP_ID}/$STEAM_APP_ID/g' $APP_BUILD_FILENAME
 sed -i 's/{DESCRIPTION}/$BUILD_DESCRIPTION/g' $APP_BUILD_FILENAME
 sed -i 's/{BRANCH}/$STEAM_BRANCH/g' $APP_BUILD_FILENAME
 sed -i 's/{PREVIEW}/$STEAM_PREVIEW/g' $APP_BUILD_FILENAME
+sed -i 's/{DEPOT_ID}/$STEAM_DEPOT_ID/g' $APP_BUILD_FILENAME
 
 # Depot build file
 sed -i 's/{DEPOT_ID}/$STEAM_DEPOT_ID/g' $DEPOT_BUILD_FILENAME
