@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-set -ex
+set -e
+set -x
 
-if [[ $CI_COMMIT_TAG =~ ^v[0-9](\.[0-9]+){1,2} ]]; then
+if [ $CI_COMMIT_TAG ]; then
   export REGISTRY=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
 elif [ "$CI_COMMIT_REF_NAME" = "master" ]; then
   export REGISTRY=$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA

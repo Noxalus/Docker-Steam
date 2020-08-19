@@ -14,3 +14,7 @@ build:
   script:
     -  chmod +x ./ci/build.sh && ./ci/build.sh
   retry: 2
+  only:
+    - master
+    - tags
+    - dev
