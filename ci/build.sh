@@ -2,7 +2,9 @@
 
 set -ex
 
-if [ "$CI_COMMIT_REF_NAME" = "master" ]; then
+if [[ $CI_COMMIT_TAG =~ ^v[0-9](\.[0-9]+){1,2} ]]; then
+  export REGISTRY=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+elif [ "$CI_COMMIT_REF_NAME" = "master" ]; then
   export REGISTRY=$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
 else
   export REGISTRY=$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
