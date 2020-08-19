@@ -3,7 +3,6 @@
 set -e
 
 CONTENT_ROOT="/home/content"
-STEAM_CMD_STDERR_FILE="/root/Steam/logs/stderr.txt"
 
 if [ ! $STEAM_ACCOUNT ]
 then
@@ -58,11 +57,3 @@ fi
     +login $STEAM_ACCOUNT $STEAM_PASSWORD \
     +run_app_build_http ./scripts/app_build.vdf \
     +quit
-
-set +x
-
-# Check there is no error
-if [ -f $STEAM_CMD_STDERR_FILE ]; then
-    cat $STEAM_CMD_STDERR_FILE
-    exit 1
-fi
