@@ -45,7 +45,7 @@ else
     sed -i 's|{DESCRIPTION}|[NO DESCRIPTION PROVIDED]|g' $APP_BUILD_FILENAME
 fi
 
-if [ "$BRANCH" ]
+if [ "$STEAM_BRANCH" ]
 then
     sed -i 's|{BRANCH}|'"$STEAM_BRANCH"'|g' $APP_BUILD_FILENAME
 else
