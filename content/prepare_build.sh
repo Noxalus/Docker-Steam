@@ -39,6 +39,8 @@ sed -i 's|{DEPOT_ID}|'$STEAM_DEPOT_ID'|g' $APP_BUILD_FILENAME
 # Escape build description to avoid sed replacement issue
 if [ "$STEAM_DESCRIPTION" ]
 then
+    # Make sure to remove carriage returns from the description
+    BUILD_DESCRIPTION=$(echo $STEAM_DESCRIPTION | tr -d '\r')
     BUILD_DESCRIPTION=$(printf '%s\n' "$STEAM_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
     sed -i 's|{DESCRIPTION}|'"$BUILD_DESCRIPTION"'|g' $APP_BUILD_FILENAME
 else
