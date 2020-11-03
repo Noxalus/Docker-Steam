@@ -40,8 +40,9 @@ sed -i 's|{DEPOT_ID}|'$STEAM_DEPOT_ID'|g' $APP_BUILD_FILENAME
 if [ "$STEAM_DESCRIPTION" ]
 then
     # Make sure to remove carriage returns from the description
-    BUILD_DESCRIPTION=$(echo $STEAM_DESCRIPTION | tr -d '\r')
-    BUILD_DESCRIPTION=$(printf '%s\n' "$STEAM_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
+    BUILD_DESCRIPTION=$STEAM_DESCRIPTION
+    BUILD_DESCRIPTION=$(printf '%s\n' "$BUILD_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
+    BUILD_DESCRIPTION=$(echo $BUILD_DESCRIPTION | tr -d '\r')
     sed -i 's|{DESCRIPTION}|'"$BUILD_DESCRIPTION"'|g' $APP_BUILD_FILENAME
 else
     sed -i 's|{DESCRIPTION}|[NO DESCRIPTION PROVIDED]|g' $APP_BUILD_FILENAME
