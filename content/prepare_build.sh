@@ -44,8 +44,8 @@ then
     BUILD_DESCRIPTION=$(printf '%s\n' "$BUILD_DESCRIPTION" | sed -e 's/[\/&]/\\&/g')
     # Remove break lines
     BUILD_DESCRIPTION=$(echo $BUILD_DESCRIPTION | tr -d '\r')
-    # Escape " characters
-    BUILD_DESCRIPTION=$(echo $BUILD_DESCRIPTION | sed -e 's/\"/\\\"/g')
+    # Escape " characters twice as Steam's description is surrounded by that
+    BUILD_DESCRIPTION=$(echo $BUILD_DESCRIPTION | sed -e 's/\"/\\\\\"/g')
     sed -i 's|{DESCRIPTION}|'"$BUILD_DESCRIPTION"'|g' $APP_BUILD_FILENAME
 else
     sed -i 's|{DESCRIPTION}|[NO DESCRIPTION PROVIDED]|g' $APP_BUILD_FILENAME
